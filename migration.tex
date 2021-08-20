@@ -1,0 +1,57 @@
+\section{Migration}
+
+The two Super Micro XG-1541 chassis were already racked and mounted inside our base data center during the beginning of 2021, and are running the latest and most updated version of pfsense (2.5.2-RELEASE built on Fri Jul 02 15:33:00 EDT 2021). The two boxes have a clean installation and can be moved at will since they are inside a development environment directly connected to AURA border router for WAN access. Meanwhile, out-of-band access is made through BMC interfaces.
+
+\subsection{Location inside Data Center}
+
+If physical movement is required, the two boxes will be moved to rack A4 near Rubin's and AURA border routers. 10Gbps interfaces are using LC multimode fiber and FS SFP+ modules. Gigabit ethernet connections are using CAT6/CAT6a cables. Their actual location is on rack B9.
+
+\subsection{Firewall Configurations}
+
+pfsense has a "backup and restore" wizard which is pretty useful since also has the ability to perform area backups, meaning that can export and import specific code from/into the configuration file. Be aware that not all features are listed on the "backup area" list. Meanwhile, the "restore area" has a bigger option list.
+
+Bear in mind that the actual 1Gbps firewall installed and in use in La Serena will be decommissioned once the new setup enters production. All configurations will be saved and used for the new 10Gbps firewall setup.
+
+\subsection{Authentication}
+
+Authentication will be made through IPA services. IT administrators should not use a local account unless explicitly is required (i.e during an IPA outage). The local account is only for the mandatory admin user and IT admin user. AD account only if needed.
+
+\subsection{Interfaces}
+
+Interfaces will require to be modified since the WAN and LAN connections will change. This will not affect CARP or BMC interfaces.
+
+\subsection{Firewall Aliases}
+
+Firewall Aliases can be exported and copy directly into new boxes. Aliases can be " only-restore" on pfsense web-based GUI wizard. 
+
+\subsection{NAT Rules}
+
+NAT rules will require to be modified since the WAN and LAN interfaces will change. NAT rules can be "backup and restore" on pfsense web-based GUI wizard.
+
+\subsection{Firewall Rules}
+
+Firewall rules will require to be modified since the WAN and LAN interfaces will change. Firewall rules can be "backup and restore" on pfsense web-based GUI wizard.
+
+\subsection{CARP}
+
+CARP interfaces are belonging to a private range that is not in use in another segment of the network which made high availability possible, so no action is required.
+
+\subsection{Routing}
+
+Static routes will require to be modified since the WAN and LAN interfaces will change. Static rules can be "backup and restore" on pfsense web-based GUI wizard.
+
+\subsection{IPSec}
+
+IPSec will require to be modified since the WAN and LAN interfaces will change. This activity will require coordination with Steward and Rubin's Tucson IT departments. IPSec can be "backup and restore" on pfsense web-based GUI wizard.
+
+Note: Policy-Based or VTI modes are available. See availability on end-points for both solutions.
+
+\subsection{OpenVPN}
+
+OpenVPN will require to be modified since the WAN and LAN interfaces will change, alongside the certificates. OpenVPN configuration can be "backup and restore" on pfsense web-based GUI wizard.
+
+Note: WireGuard has been removed from the base system in releases after pfSense Plus 21.02-p1 and pfSense CE 2.5.0 when it was removed from FreeBSD. If upgrading from a version that has WireGuard active, the upgrade will abort until all WireGuard tunnels are removed. WireGuard is available as an experimental add-on package on pfSense Plus 21.05, pfSense CE 2.5.2, and later versions. The settings for the WireGuard add-on package are not compatible with the older base system configuration.
+
+\subsection{Snort}
+
+Snort policies will require to be carefully applied to the correct interfaces using the correct "Pass-Lists" and "Aliases". Snort rules can NOT be "backup and restore" on pfsense web-based GUI wizard, is preferred to do it manually and proceed with caution since it's going to block Interface traffic if it's not correctly applied.

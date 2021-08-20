@@ -1,0 +1,82 @@
+\section{Hardware Description}
+
+\subsection{Minimum hardware requirements}
+The minimum hardware requirements for pfsense® 2.5.2-RELEASE on hardware not sold by Netgate are:
+
+
+\begin{itemize}
+    \item 64-bit amd64 (x86-64) compatible CPU
+    \item 1GB or more RAM
+    \item 8 GB or larger disk drive (SSD, HDD, etc)
+    \item One or more compatible network interface cards
+    \item Bootable USB drive or high capacity optical drive (DVD or BD) for initial installation
+\end{itemize}
+
+\subsection{Hardware to be used}
+The two boxes that we will be using have the following specifications: 
+
+
+\begin{table}[h]
+    \begin{center}
+    \begin{tabular}{ | m{5cm} | m{12cm} | }
+    \hline CPU & Intel Xeon-DE D-1541 2.1 GHz FCBGA 1667 supported SoC \\ \hline
+    CPU Cores & Eight Cores, 45W \\ \hline
+    Networking & 
+    \begin{description} 
+        \item Dual LAN via Intel i350-AM2 1 Gigabit Ethernet
+        \item Dual LAN via SoC 10GBase-T
+        \item Virtual Machine Device Queues reduce I/O overhead
+        \item Supports 10GBASE-T, 100BASE-TX, and 1000BASE-T, RJ45 output
+        \item 1x Realtek RTL8201N PHY (dedicated IPMI) \end{description} \\ \hline
+    Storage & 132 GB Micron M.2 SSD \\ \hline
+    Memory & 16 GB DDR4 UDIMM \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table} 
+
+\newpage
+
+\begin{table}
+    \begin{center}
+    \begin{tabular}{ | m{5cm} | m{12cm} | }
+    \hline Expansion &
+    \begin{description} 
+        \item 1x PCI-E 3.0 x 16 (in x4) AOC Slot
+        \item 6x SATA3 ports \end{description} \\ \hline
+    Other Ports &
+    \begin{description} 
+        \item 1x BMC integrated ASPEED AST2400
+        \item 1x IPMI Port 
+        \item 1x VGA Port
+        \item 1x Fast UART 16550 Serial Port (header) \end{description} \\ \hline
+    USB Ports & 2x USB 3.0 ports \\ \hline
+    LED &
+    \begin{description}
+        \item Power LED
+        \item Hard drive activity LED
+        \item 2x Network activity LEDs
+        \item System Overheat LED
+        \item Information LED (temp., status) \end{description} \\ \hline
+    Enclosure & 19" 1U Rack Mount - CSE-505-203B \\ \hline
+    Form Factor & 1U 1.7"x17.2"x9.8" \\ \hline
+    Cooling & 200W Low-noise PS with PFC: Active CPU fan, 40mm chassis fan \\ \hline
+    Power & 
+    \begin{description}
+        \item 1x SATA DOM power connector
+        \item 100-240V, 50-60Hz, 2.6 Amp MAX
+        \item AC Inlet: IEC320-C14 (3 PIN)
+        \item Power Cord: NEMA 5-15P to IEC320-Cxx \end{description} \\ \hline   
+    Environmental & 
+    \begin{description}
+        \item 10°C to 35°C Operating Temp
+        \item 8\% to 90\% Operating Relative Humidity (non-condensing) \end{description} \\ \hline
+    Power Consumption & TBD W (idle) \\ \hline
+    Certifications & FCC, CE, RoHS, UL \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table} 
+
+
+
+
+

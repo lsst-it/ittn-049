@@ -1,9 +1,9 @@
-\documentclass[PMO,authoryear,toc]{lsstdoc}
+\documentclass[PMO,authoryear,toc,lsstdraft]{lsstdoc}
 % lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
 \input{meta}
 
 % Package imports go here.
-
+  
 % Local commands go here.
 
 %If you want glossaries
@@ -22,7 +22,7 @@ Julio Constanzo
 \setDocRef{ITTN-049}
 \setDocUpstreamLocation{\url{https://github.com/lsst-it/ittn-049}}
 
-\date{\vcsDate}
+\date{\today}
 
 % Optional: name of the document's curator
 % \setDocCurator{The Curator of this Document}
@@ -36,7 +36,8 @@ This document describe the internet edge firewall design, actual setup migration
 % Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
 % See LPM-51 for version number policy.
 \setDocChangeRecord{%
-  \addtohist{1}{YYYY-MM-DD}{Unreleased.}{Julio Constanzo}
+  \addtohist{1}{2021-08-18}{Unreleased}{Julio Constanzo}
+  
 }
 
 
@@ -49,6 +50,14 @@ This document describe the internet edge firewall design, actual setup migration
 
 % ADD CONTENT HERE
 % You can also use the \input command to include several content files.
+\include{scope}
+\include{hardware}
+\include{software}
+\include{design01}
+\include{migration}
+\include{integration}
+\include{conclusion}
+
 
 \appendix
 % Include all the relevant bib files.
